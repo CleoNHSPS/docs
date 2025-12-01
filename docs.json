@@ -9,6 +9,27 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
+    "dropdowns": [
+      {
+        "dropdown": "API reference",
+        "icon": "terminal",
+        "description": "How to use the Example Co. API",
+        "groups": [
+          {
+            "group": "API reference",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Endpoints",
+            "openapi": {
+              "source": "https://capp-il-dev-neu-01.proudwave-2f914745.northeurope.azurecontainerapps.io/swagger/integration_v1/swagger.json"
+            }
+          }
+        ]
+      },
+    ],
     "tabs": [
       {
         "tab": "Guides",
