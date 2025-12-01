@@ -1,0 +1,884 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "OpenAPI Document on Azure Functions",
+    "description": "This is the OpenAPI Document on Azure Functions",
+    "version": "1.0.0"
+  },
+  "host": "wapp-sbs-dev-uks-deviceapi-01.azurewebsites.net",
+  "basePath": "/api",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/DeleteEquipment": {
+      "delete": {
+        "tags": [
+          "Equipment"
+        ],
+        "operationId": "DeleteEquipment_Delete",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "text/plain; charset=utf-8",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Equipment Model",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/device"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Input parameters likely incorrect",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/GetDeviceData": {
+      "get": {
+        "tags": [
+          "Device Data"
+        ],
+        "operationId": "GetDeviceData_Get",
+        "produces": [
+          "application/json; charset=utf-8",
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Input parameters incorrect",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/ListDevices": {
+      "get": {
+        "tags": [
+          "Device Profiles"
+        ],
+        "operationId": "ListDevices_Get",
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/AddDevice": {
+      "post": {
+        "tags": [
+          "Device Profiles"
+        ],
+        "operationId": "AddDevice_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json; charset=utf-8",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Device Profile",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/deviceProfile"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Input parameters incorrect",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/GetDTDevices": {
+      "get": {
+        "tags": [
+          "Disruptive Technologies"
+        ],
+        "operationId": "GetDTDevices_Get",
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/dtDevices"
+            }
+          }
+        }
+      }
+    },
+    "/GetEquipment": {
+      "get": {
+        "tags": [
+          "Equipment"
+        ],
+        "operationId": "GetEquipment_Get",
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "deviceName",
+            "description": "The name of the device",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/ListEquipmentBySiteId": {
+      "get": {
+        "tags": [
+          "Equipment"
+        ],
+        "operationId": "ListEquipmentBySiteId_Get",
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "siteId",
+            "description": "The site Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/ListEquipmentBySpaceId": {
+      "get": {
+        "tags": [
+          "Equipment"
+        ],
+        "operationId": "ListEquipmentBySpaceId_Get",
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "spaceId",
+            "description": "The space Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/GetEquipmentV2": {
+      "get": {
+        "tags": [
+          "Equipment"
+        ],
+        "operationId": "GetEquipmentV2_Get",
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "assetId",
+            "description": "The name of the device",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/device"
+            }
+          }
+        }
+      }
+    },
+    "/GetEquipmentHistory": {
+      "get": {
+        "tags": [
+          "Equipment"
+        ],
+        "operationId": "GetEquipmentHistory_Get",
+        "produces": [
+          "application/json; charset=utf-8",
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "204": {
+            "description": "No data available",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/GetLatestRecordsBySiteIdAndDataPoint": {
+      "get": {
+        "tags": [
+          "Device Data"
+        ],
+        "operationId": "GetLatestRecordsBySiteIdAndDataPoint_Get",
+        "produces": [
+          "application/json; charset=utf-8",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "spaceId",
+            "description": "The space Id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "dataPoint",
+            "description": "The data point (e.g. - Data.deskOccupancy.state",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "dataDurationMinutes",
+            "description": "How far to look back for each device in minutes",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Input parameters incorrect",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/GetSites": {
+      "get": {
+        "tags": [
+          "Sites"
+        ],
+        "operationId": "GetSites_Get",
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "siteId",
+            "description": "The site Id in the backend",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/sites"
+            }
+          }
+        }
+      }
+    },
+    "/GetSpaces": {
+      "get": {
+        "tags": [
+          "Spaces"
+        ],
+        "operationId": "GetSpaces_Get",
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "siteId",
+            "description": "The site Id in the backend",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/sites"
+            }
+          }
+        }
+      }
+    },
+    "/GetVendors": {
+      "get": {
+        "tags": [
+          "Vendors"
+        ],
+        "operationId": "GetVendors_Get",
+        "produces": [
+          "application/json; charset=utf-8",
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "204": {
+            "description": "No data available",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/AddIoTDevice": {
+      "post": {
+        "tags": [
+          "IoT Hub"
+        ],
+        "operationId": "AddIoTDevice_Post",
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "deviceId",
+            "description": "Device ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/PostEquipment": {
+      "post": {
+        "tags": [
+          "Equipment"
+        ],
+        "operationId": "PostEquipment_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "text/plain; charset=utf-8",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Equipment Model",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/device"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Input parameters incorrect",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/OverwriteEquipment": {
+      "post": {
+        "tags": [
+          "Equipment"
+        ],
+        "operationId": "OverwriteEquipment_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "text/plain; charset=utf-8",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Equipment Model",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/device"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Input parameters likely incorrect",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/PostNewEquipmentHistory": {
+      "post": {
+        "tags": [
+          "Equipment"
+        ],
+        "operationId": "PostNewEquipmentHistory_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "text/plain; charset=utf-8",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Equipment History Model",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/equipmentHistoryModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Input parameters incorrect",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/PostRegisterNewDTKit": {
+      "post": {
+        "tags": [
+          "Disruptive Technologies"
+        ],
+        "operationId": "PostRegisterNewDTKit_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "text/plain; charset=utf-8",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Registering new DT sensors by KitId (back of box)",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/newKit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Input parameters incorrect or empty",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Devices already claimed",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/PostSite": {
+      "post": {
+        "tags": [
+          "Sites"
+        ],
+        "operationId": "PostSite_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "text/plain; charset=utf-8",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Site Model",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/site"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Input parameters incorrect",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/PostSpace": {
+      "post": {
+        "tags": [
+          "Spaces"
+        ],
+        "operationId": "PostSpace_Post",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "text/plain; charset=utf-8",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Space Model",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/space"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Input parameters incorrect",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "device": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "siteId": {
+          "type": "string"
+        },
+        "spaceId": {
+          "type": "string"
+        },
+        "assetId": {
+          "type": "string"
+        },
+        "metadata": {
+          "$ref": "#/definitions/metadata"
+        }
+      }
+    },
+    "deviceProfile": {
+      "type": "object",
+      "properties": {
+        "make": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        }
+      }
+    },
+    "dtDevices": {
+      "type": "object",
+      "properties": {
+        "devices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/device"
+          }
+        },
+        "nextPageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "equipmentHistoryModel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "siteId": {
+          "type": "string"
+        },
+        "spaceId": {
+          "type": "string"
+        },
+        "assetId": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "refs": {
+          "type": "object"
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "startDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "labels": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "kit": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "nhspsDeviceTypeId": {
+          "type": "string"
+        }
+      }
+    },
+    "newKit": {
+      "type": "object",
+      "properties": {
+        "kitId": {
+          "type": "string"
+        }
+      }
+    },
+    "site": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "timestamp": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "sites": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "pages": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "page": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "perPage": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/site"
+          }
+        }
+      }
+    },
+    "space": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "siteId": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}
